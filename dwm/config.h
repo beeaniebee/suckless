@@ -66,11 +66,19 @@ static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 
+#include <X11/XF86keysym.h>
+static const char *upvol[]   = { "/bin/sh", "/etc/scripts/volume", "+", NULL };
+static const char *downvol[] = { "/bin/sh", "/etc/scripts/volume", "-", NULL };
+static const char *mutevol[] = { "/bin/sh", "/etc/scripts/volume", "m", NULL };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
+	{ 0,		XF86XK_AudioLowerVolume,   spawn,	   {.v = downvol } },
+	{ 0,		XF86XK_AudioMute, 	   spawn,	   {.v = mutevol } },
+	{ 0,		XF86XK_AudioRaiseVolume,   spawn,	   {.v = upvol   } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
