@@ -1,7 +1,11 @@
 //Modify this file to change what commands output to your statusbar, and recompile using the make command.
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
-	{ " ", "echo $(/etc/scripts/status-volume.sh)", 1, 0},
+	{ "  ", "uptime  | awk '{printf \"%.2f %.2f %.2f\", $(NF-2), $(NF-1), $(NF)}'",	1,	0 },
+
+	{ "﬙ ", "free -h | awk 'NR==2{printf \"%s/%s\", $3,$2}'", 1,	0 },
+
+	{ "", "echo $(/etc/scripts/status-volume.sh)", 1, 0},
 
 	/*{ " Volume: ", "echo $(pulsemixer --get-volume | cut -d ' ' -f 1)$(if [[ $(pulsemixer --get-mute) == 1 ]] ; then echo '!'; fi)", 1, 10 },*/
 
