@@ -3,7 +3,7 @@ static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
 	{ "  ", "uptime  | awk '{printf \"%.2f %.2f %.2f\", $(NF-2), $(NF-1), $(NF)}'",	1,	0 },
 
-	{ "﬙ ", "free -h | awk 'NR==2{printf \"%s/%s\", $3,$2}'", 1,	0 },
+	{ "﬙ ", "free --mega -h | awk 'NR==2{printf \"%s/%s\", $3,$2}'", 1,	0 },
 
 	{ "", "echo $(/etc/scripts/status-volume.sh)", 1, 0},
 
