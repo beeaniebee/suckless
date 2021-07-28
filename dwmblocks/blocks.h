@@ -15,7 +15,7 @@ static const Block blocks[] = {
 
 	{ "", "date +'%A, %B %d - %H:%M:%S'",					1,		0 },
 
-	{ "", "echo $(whoami)@$(hostname)' '",					0,		0 },
+	{ "", "echo $(whoami)@$(uname -n)' '",					0,		0 },
 
 };
 
