@@ -75,6 +75,8 @@ static const char *downvol[] = { "/bin/sh", "/etc/scripts/volume", "-", NULL };
 static const char *mutevol[] = { "/bin/sh", "/etc/scripts/volume", "m", NULL };
 static const char *brightu[] = { "/bin/doas", "/usr/bin/bright", "+", NULL };
 static const char *brightd[] = { "/bin/doas", "/usr/bin/bright", "-", NULL };
+static const char *keyup[]   = { "/bin/sh", "/etc/scripts/keybright", "+", NULL };
+static const char *keydn[]   = { "/bin/sh", "/etc/scripts/keybright", "-", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -83,7 +85,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_n,	   spawn,	   {.v = dunstcloseall } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
-        { 0,            XF86XK_MonBrightnessUp,    spawn,          {.v = brightu } },
+        { 0,            XF86XK_KbdBrightnessUp,    spawn,          {.v = keyup} },
+        { 0,            XF86XK_KbdBrightnessDown,  spawn,          {.v = keydn } },
+	{ 0,            XF86XK_MonBrightnessUp,    spawn,          {.v = brightu } },
         { 0,            XF86XK_MonBrightnessDown,  spawn,          {.v = brightd } },
 	{ 0,		XF86XK_AudioLowerVolume,   spawn,	   {.v = downvol } },
 	{ 0,		XF86XK_AudioMute, 	   spawn,	   {.v = mutevol } },
