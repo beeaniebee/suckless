@@ -73,8 +73,8 @@ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34
 static const char *upvol[]   = { "/bin/sh", "/etc/scripts/volume", "+", NULL };
 static const char *downvol[] = { "/bin/sh", "/etc/scripts/volume", "-", NULL };
 static const char *mutevol[] = { "/bin/sh", "/etc/scripts/volume", "m", NULL };
-static const char *brightu[] = { "/bin/doas", "/usr/bin/bright", "+", NULL };
-static const char *brightd[] = { "/bin/doas", "/usr/bin/bright", "-", NULL };
+static const char *brightu[] = { "/bin/doas", "/etc/scripts/bright", "+", NULL };
+static const char *brightd[] = { "/bin/doas", "/etc/scripts/bright", "-", NULL };
 static const char *keyup[]   = { "/bin/sh", "/etc/scripts/keybright", "+", NULL };
 static const char *keydn[]   = { "/bin/sh", "/etc/scripts/keybright", "-", NULL };
 
