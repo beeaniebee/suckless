@@ -1,7 +1,10 @@
 //Modify this file to change what commands output to your statusbar, and recompile using the make command.
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
-	{ "  ", "uptime  | awk '{printf \"%.2f %.2f %.2f\", $(NF-2), $(NF-1), $(NF)}'",	1,	0 },
+
+	{ "   ", "iwctl station wlp2s0 show | grep 'Connected network' | awk '{print $3}'",	5,	0 },
+
+	{ " ", "uptime  | awk '{printf \"%.2f %.2f %.2f\", $(NF-2), $(NF-1), $(NF)}'",	1,	0 },
 
 	{ "﬙ ", "free --mega -h | awk 'NR==2{printf \"%s/%s\", $3,$2}'", 1,	0 },
 
@@ -15,7 +18,7 @@ static const Block blocks[] = {
 
 	{ "", "date +'%A, %B %d - %H:%M:%S'",					1,		0 },
 
-	{ "", "echo $(whoami)@$(uname -n)' '",					0,		0 },
+	{ "", "echo $(whoami)@$(hostname)' '",					0,		0 },
 
 };
 
