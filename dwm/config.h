@@ -73,8 +73,9 @@ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34
 static const char *upvol[]   = { "/bin/sh", "/etc/scripts/volume", "+", NULL };
 static const char *downvol[] = { "/bin/sh", "/etc/scripts/volume", "-", NULL };
 static const char *mutevol[] = { "/bin/sh", "/etc/scripts/volume", "m", NULL };
-static const char *brightu[] = { "/bin/doas", "/usr/bin/bright", "+", NULL };
-static const char *brightd[] = { "/bin/doas", "/usr/bin/bright", "-", NULL };
+static const char *brightu[] = { "/etc/scripts/bright", "+", NULL };
+static const char *brightd[] = { "/etc/scripts/bright", "-", NULL };
+static const char *lockcmd[] = { "/usr/bin/xautolock", "-locknow", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -88,6 +89,7 @@ static Key keys[] = {
 	{ 0,		XF86XK_AudioLowerVolume,   spawn,	   {.v = downvol } },
 	{ 0,		XF86XK_AudioMute, 	   spawn,	   {.v = mutevol } },
 	{ 0,		XF86XK_AudioRaiseVolume,   spawn,	   {.v = upvol   } },
+	{ MODKEY|ControlMask|ShiftMask, XK_l,      spawn,          {.v = lockcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
