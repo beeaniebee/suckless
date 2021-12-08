@@ -75,7 +75,7 @@ static const char *downvol[] = { "/bin/sh", "/etc/scripts/volume", "-", NULL };
 static const char *mutevol[] = { "/bin/sh", "/etc/scripts/volume", "m", NULL };
 static const char *brightu[] = { "/etc/scripts/bright", "+", NULL };
 static const char *brightd[] = { "/etc/scripts/bright", "-", NULL };
-static const char *lockcmd[] = { "/usr/bin/xautolock", "-locknow", NULL };
+static const char *lockcmd[] = { "/usr/local/bin/slock", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
