@@ -7,9 +7,9 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int user_bh	    = 18;	/* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
-static const char *fonts[]          = { "Fantasque Sans Mono:size=10", "FantasqueSansMono Nerd Font:size=10"};
-static const char dmenufont[]       = "Fantasque Sans Mono:size=10";
+static const int user_bh	    = 16;	/* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
+static const char *fonts[]          = { "Fantasque Sans Mono:size=9", "FantasqueSansMono Nerd Font:size=9"};
+static const char dmenufont[]       = "Fantasque Sans Mono:size=9";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -29,9 +29,12 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor   float x,y,w,h        floatborderpx */
-	{ "st",      NULL,     NULL,           0,         0,          1,           0,        -1,       50,50,500,500,       3 },
-	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1,       50,50,500,500,       3 }, /* xev */
+	/* class                   instance  title           tags mask  isfloating  isterminal  noswallow  monitor   float x,y,w,h        floatborderpx */
+	{ NULL,                    NULL,     NULL,           0, 	0,          0,           0,        -1,       0, 0, 500,500,       0 },
+	{ "Qalculate-gtk",         NULL,     NULL,           0,         1,          0,           0,        -1,       50,50,802,544,       3 },
+	{ "st",                    NULL,     NULL,           0,         0,          1,           0,        -1,       50,50,500,500,       3 },
+	{ "com-atlauncher-App",    NULL,     "win0",         0,         1,          0,           0,        -1,       0, 0, 500,200,       0 },
+	{ NULL,                    NULL,     "Event Tester", 0,         0,          0,           1,        -1,       50,50,500,500,       3 }, /* xev */
 };
 
 /* layout(s) */
@@ -68,6 +71,7 @@ static const char *dunstcloseall[] = { "dunstctl", "close-all", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
+static const char *qalccmd[] = { "qalculate-gtk"};
 
 #include <X11/XF86keysym.h>
 static const char *upvol[]   = { "/bin/sh", "/etc/scripts/volume", "+", NULL };
@@ -84,6 +88,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_n,	   spawn,	   {.v = dunstcloseall } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY,                       XK_q,      spawn,          {.v = qalccmd } },
         { 0,            XF86XK_MonBrightnessUp,    spawn,          {.v = brightu } },
         { 0,            XF86XK_MonBrightnessDown,  spawn,          {.v = brightd } },
 	{ 0,		XF86XK_AudioLowerVolume,   spawn,	   {.v = downvol } },
