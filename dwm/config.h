@@ -72,7 +72,7 @@ static const char *dunstcontext[] = { "dunstctl", "context", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
-static const char *qalccmd[] = { "qalculate-gtk"};
+static const char *qalccmd[] = { "qalculate-gtk", NULL};
 
 #include <X11/XF86keysym.h>
 static const char *upvol[]   = { "/bin/sh", "/etc/scripts/volume", "+", NULL };
