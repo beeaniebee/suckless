@@ -12,7 +12,7 @@ static const Block blocks[] = {
 
 	/*{ " Volume: ", "echo $(pulsemixer --get-volume | cut -d ' ' -f 1)$(if [[ $(pulsemixer --get-mute) == 1 ]] ; then echo '!'; fi)", 1, 10 },*/
 
-	{ "", "echo $(/etc/scripts/status-battery.sh)", 5, 0},
+	{ "", "echo $(/etc/scripts/status-battery.sh)", 5, 20},
 
 	/*{ "Battery: ", "echo $(cat /sys/class/power_supply/BAT0/capacity) '('$(cat /sys/class/power_supply/BAT0/status)')'",	1,		0 },*/
 
