@@ -22,7 +22,7 @@ static int borderpx = 8;
  * 4: value of shell in /etc/passwd
  * 5: value of shell in config.h
  */
-static char *shell = "/bin/sh";
+static char *shell = "/bin/zsh";
 char *utmp = NULL;
 /* scroll program: to enable use a string like "scroll" */
 char *scroll = NULL;
@@ -79,11 +79,11 @@ static unsigned int cursorthickness = 2;
  *    Bold affects lines thickness if boxdraw_bold is not 0. Italic is ignored.
  * 0: disable (render all U25XX glyphs normally from the font).
  */
-const int boxdraw = 0;
-const int boxdraw_bold = 0;
+const int boxdraw = 1;
+const int boxdraw_bold = 1;
 
 /* braille (U28XX):  1: render as adjacent "pixels",  0: use font */
-const int boxdraw_braille = 0;
+const int boxdraw_braille = 1;
 
 /*
  * bell volume. It must be a value between -100 and 100. Use 0 for disabling
@@ -109,29 +109,29 @@ char *termname = "st-256color";
  *
  *	stty tabs
  */
-unsigned int tabspaces = 8;
+unsigned int tabspaces = 4;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-	"#000000",
-	"#ca274d",
-	"#4dca27",
-	"#caa427",
-	"#274dca",
-	"#a427ca",
-	"#27caa4",
-	"#aaaaaa",
+	"#333333", //"#000000",
+	"#ff5555", //"#ca274d",
+	"#5fd38d", //"#4dca27",
+	"#ff9955", //"#caa427",
+	"#3771c8", //"#274dca",
+	"#bc5fd3", //"#a427ca",
+	"#5fd3bc", //"#27caa4",
+	"#999999", //"#aaaaaa",
 
 	/* 8 bright colors */
-	"#808080",
-	"#e98da3",
-	"#a3e98d",
-	"#e9d48d",
-	"#8da3e9",
-	"#d48de9",
-	"#8de9d4",
-	"#ffffff",
+	"#666666", //"#808080",
+	"#ff8080", //"#e98da3",
+	"#87deaa", //"#a3e98d",
+	"#ffb380", //"#e9d48d",
+	"#5f8dd3", //"#8da3e9",
+	"#cd87de", //"#d48de9",
+	"#87decd", //"#8de9d4",
+	"#cccccc", //"#ffffff",
 
 	[255] = 0,
 

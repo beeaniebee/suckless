@@ -23,7 +23,7 @@ case $1 in
 	
 esac
 
-programs=("dwm" "st" "dwmblocks" "slock")
+programs=("dwm" "st" "dwmblocks" "slock" "dmenu")
 
 for program in ${programs[@]}
 do

@@ -34,8 +34,9 @@ static const Rule rules[] = {
 	 */
 	/* class                   instance  title           tags mask  isfloating  isterminal  noswallow  monitor   float x,y,w,h        floatborderpx */
 	{ NULL,                    NULL,     NULL,           0,         0,          0,           0,        -1,       0, 0, 500,500,       0  },
-	{ "Qalculate-gtk",         NULL,     NULL,           0,         1,          0,           0,        -1,       50,50,1,1,       3  },
+	{ "Qalculate-gtk",         NULL,     NULL,           0,         1,          0,           0,        -1,       50,50,250,150,       3  },
 	{ "st",                    NULL,     NULL,           0,         0,          1,           0,        -1,       50,50,500,500,       3  },
+	{ "xpad",                  NULL,     NULL,           0,         1,          0,           0,        -1,       100,100,500,300,     3  },
 	{ "thunderbird",           NULL,     NULL,           1 << 8,    0,          1,           0,        -1,       50,50,500,500,       3  },
 	{ "Cisco AnyConnect Secure Mobility Client",NULL,NULL,0,        1,          1,           0,        -1,       0, 0, 1,  1,         3  },
 	{ NULL,                    NULL,     "Event Tester", 0,         0,          0,           1,        -1,       50,50,500,500,       3  }, /* xev */
