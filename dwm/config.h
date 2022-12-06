@@ -82,6 +82,7 @@ static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "140x40", NULL };
 
 static const char *qalccmd[] = { "qalculate-gtk", NULL};
+static const char *obsidiancmd[] = { "obsidian", NULL};
 
 static const char *termcmd[]  = { "st", NULL };
 
@@ -104,12 +105,13 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_q,      spawn,          {.v = qalccmd } },
-        { 0,            XF86XK_MonBrightnessUp,    spawn,          {.v = brightu } },
-        { 0,            XF86XK_MonBrightnessDown,  spawn,          {.v = brightd } },
-        { 0,            XF86XK_AudioLowerVolume,   spawn,          {.v = downvol } },
-        { 0,            XF86XK_AudioMute,          spawn,          {.v = mutevol } },
-        { 0,            XF86XK_AudioRaiseVolume,   spawn,          {.v = upvol   } },
-        { MODKEY|ControlMask|ShiftMask, XK_l,      spawn,          {.v = lockcmd } },
+	{ MODKEY,                       XK_o,      spawn,          {.v = obsidiancmd } },
+	{ 0,            XF86XK_MonBrightnessUp,    spawn,          {.v = brightu } },
+	{ 0,            XF86XK_MonBrightnessDown,  spawn,          {.v = brightd } },
+	{ 0,            XF86XK_AudioLowerVolume,   spawn,          {.v = downvol } },
+	{ 0,            XF86XK_AudioMute,          spawn,          {.v = mutevol } },
+	{ 0,            XF86XK_AudioRaiseVolume,   spawn,          {.v = upvol   } },
+	{ MODKEY|ControlMask|ShiftMask, XK_l,      spawn,          {.v = lockcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
