@@ -8,13 +8,11 @@ static const Block blocks[] = {
 
 	{ "﬙ ", "free --mega -h | awk 'NR==2{printf \"%s/%s\", $3,$2}'", 5,	0 },
 
+	{ " ", "echo \"$(pacman -Qu | wc -l)/$(pacman -Q | wc -l)\"", 3600, 30},
+
 	{ "", "echo $(~/.scripts/status-volume.sh)", 0, 10},
 
-	/*{ " Volume: ", "echo $(pulsemixer --get-volume | cut -d ' ' -f 1)$(if [[ $(pulsemixer --get-mute) == 1 ]] ; then echo '!'; fi)", 1, 10 },*/
-
 	{ "", "echo $(~/.scripts/status-battery.sh)", 5, 20},
-
-	/*{ "Battery: ", "echo $(cat /sys/class/power_supply/BAT0/capacity) '('$(cat /sys/class/power_supply/BAT0/status)')'",	1,		0 },*/
 
 	{ "", "date +'%A, %B %d - %H:%M:%S'",					1,		0 },
 

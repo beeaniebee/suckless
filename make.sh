@@ -23,6 +23,7 @@ case $1 in
 	
 esac
 
+cd $(dirname $0)
 programs=("dwm" "st" "dwmblocks" "slock" "dmenu")
 
 for program in ${programs[@]}
