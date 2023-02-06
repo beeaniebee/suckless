@@ -5,11 +5,10 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Fantasque Sans Mono:pixelsize=14:antialias=true:autohint=true";
+static char *font = "Fantasque Sans Mono:pixelsize=16:antialias=true:autohint=true";
 /* Spare fonts */
 static char *font2[] = {
-/*	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", */
-	"FantasqueSansMono Nerd Font:pixelsize=14:antialias=true:autohint=true",
+	"FantasqueSansMono Nerd Font:pixelsize=16:antialias=true:autohint=true",
 };
 
 static int borderpx = 8;

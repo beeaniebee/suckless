@@ -7,9 +7,9 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int user_bh            = 16;       /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
-static const char *fonts[]          = { "Fantasque Sans Mono:size=9", "FantasqueSansMono Nerd Font:size=9" };
-static const char dmenufont[]       = "Fantasque Sans Mono:size=9";
+static const int user_bh            = 17;       /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
+static const char *fonts[]          = { "Fantasque Sans Mono:size=10", "FantasqueSansMono Nerd Font:size=10" };
+static const char dmenufont[]       = "Fantasque Sans Mono:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -79,7 +79,7 @@ static const char *dunstcloseall[] = { "dunstctl", "close-all", NULL };
 static const char *dunstcontext[] = { "dunstctl", "context", NULL };
 
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "140x40", NULL };
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "90x25", "-f", "FantasqueSansMono Nerd Font:size=18", NULL };
 
 static const char *qalccmd[] = { "qalculate-gtk", NULL};
 static const char *obsidiancmd[] = { "obsidian", NULL};
