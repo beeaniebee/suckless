@@ -95,60 +95,59 @@ static const char *brightu[] = { "/etc/scripts/bright", "+", NULL };
 static const char *brightd[] = { "/etc/scripts/bright", "-", NULL };
 static const char *lockcmd[] = { "/usr/local/bin/slock", NULL };
 
-
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_n,      spawn,          {.v = dunstclose } },
-	{ MODKEY|ShiftMask,             XK_n,      spawn,          {.v = dunstcloseall } },
-	{ MODKEY|ShiftMask,             XK_period, spawn,          {.v = dunstcontext } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
-	{ MODKEY,                       XK_q,      spawn,          {.v = qalccmd } },
-	{ MODKEY,                       XK_o,      spawn,          {.v = obsidiancmd } },
-	{ 0,            XF86XK_MonBrightnessUp,    spawn,          {.v = brightu } },
-	{ 0,            XF86XK_MonBrightnessDown,  spawn,          {.v = brightd } },
-	{ 0,            XF86XK_AudioLowerVolume,   spawn,          {.v = downvol } },
-	{ 0,            XF86XK_AudioMute,          spawn,          {.v = mutevol } },
-	{ 0,            XF86XK_AudioRaiseVolume,   spawn,          {.v = upvol   } },
-	{ MODKEY|ControlMask|ShiftMask, XK_l,      spawn,          {.v = lockcmd } },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Return, zoom,           {0} },
-	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[3]} },
-	{ MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[4]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,                       XK_minus,  setgaps,        {.i = -5 } },
-	{ MODKEY,                       XK_equal,  setgaps,        {.i = +5 } },
-	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
-	TAGKEYS(                        XK_1,                      0)
-	TAGKEYS(                        XK_2,                      1)
-	TAGKEYS(                        XK_3,                      2)
-	TAGKEYS(                        XK_4,                      3)
-	TAGKEYS(                        XK_5,                      4)
-	TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} },
+	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },        // Launch dmenu (program launcher)
+	{ MODKEY,                       XK_n,      spawn,          {.v = dunstclose } },      // Close the most recent dunst notification
+	{ MODKEY|ShiftMask,             XK_n,      spawn,          {.v = dunstcloseall } },   // Close all dunst notifications
+	{ MODKEY|ShiftMask,             XK_period, spawn,          {.v = dunstcontext } },    // Show context menu for dunst notifications
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },         // Launch terminal
+	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },   // Toggle the scratchpad terminal
+	{ MODKEY,                       XK_q,      spawn,          {.v = qalccmd } },         // Launch Qalculate (calculator)
+	{ MODKEY,                       XK_o,      spawn,          {.v = obsidiancmd } },     // Launch Obsidian (note-taking app)
+	{ 0,            XF86XK_MonBrightnessUp,    spawn,          {.v = brightu } },         // Increase monitor brightness
+	{ 0,            XF86XK_MonBrightnessDown,  spawn,          {.v = brightd } },         // Decrease monitor brightness
+	{ 0,            XF86XK_AudioLowerVolume,   spawn,          {.v = downvol } },         // Decrease system volume
+	{ 0,            XF86XK_AudioMute,          spawn,          {.v = mutevol } },         // Mute/unmute system volume
+	{ 0,            XF86XK_AudioRaiseVolume,   spawn,          {.v = upvol   } },         // Increase system volume
+	{ MODKEY|ControlMask|ShiftMask, XK_l,      spawn,          {.v = lockcmd } },         // Lock the screen
+	{ MODKEY,                       XK_b,      togglebar,      {0} },                     // Toggle the visibility of the status bar
+	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },              // Focus next window in the stack
+	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },              // Focus previous window in the stack
+	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },              // Increase number of master windows
+	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },              // Decrease number of master windows
+	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },            // Decrease master area size
+	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },            // Increase master area size
+	{ MODKEY,                       XK_Return, zoom,           {0} },                     // Promote focused window to master
+	{ MODKEY,                       XK_Tab,    view,           {0} },                     // Switch to previously selected tag
+	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },                     // Close the focused window
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },      // Set tiling layout
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },      // Set floating layout
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },      // Set monocle layout
+	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[3]} },      // Set alternative floating layout
+	{ MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[4]} },      // Set alternative monocle layout
+	{ MODKEY,                       XK_space,  setlayout,      {0} },                     // Toggle between layouts
+	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },                     // Toggle floating mode for focused window
+	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },             // View all tags
+	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },             // Tag current window with all tags
+	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },              // Focus previous monitor
+	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },              // Focus next monitor
+	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },              // Move focused window to previous monitor
+	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },              // Move focused window to next monitor
+	{ MODKEY,                       XK_minus,  setgaps,        {.i = -5 } },              // Decrease gaps between windows
+	{ MODKEY,                       XK_equal,  setgaps,        {.i = +5 } },              // Increase gaps between windows
+	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },              // Reset gaps to zero
+	TAGKEYS(                        XK_1,                      0)                          // View/tag windows on tag 1
+	TAGKEYS(                        XK_2,                      1)                          // View/tag windows on tag 2
+	TAGKEYS(                        XK_3,                      2)                          // View/tag windows on tag 3
+	TAGKEYS(                        XK_4,                      3)                          // View/tag windows on tag 4
+	TAGKEYS(                        XK_5,                      4)                          // View/tag windows on tag 5
+	TAGKEYS(                        XK_6,                      5)                          // View/tag windows on tag 6
+	TAGKEYS(                        XK_7,                      6)                          // View/tag windows on tag 7
+	TAGKEYS(                        XK_8,                      7)                          // View/tag windows on tag 8
+	TAGKEYS(                        XK_9,                      8)                          // View/tag windows on tag 9
+	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },                     // Quit dwm (clean exit)
+	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} },                     // Force quit dwm (quick exit)
 };
 
 /* button definitions */
